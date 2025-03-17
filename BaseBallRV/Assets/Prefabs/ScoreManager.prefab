@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3920297244243023855}
   - component: {fileID: 3780643510432653956}
   - component: {fileID: 9104508783336961419}
-  - component: {fileID: 2711023431881360903}
+  - component: {fileID: 4316283152820389928}
   m_Layer: 5
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2711023431881360903
+--- !u!114 &4316283152820389928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6308790839267681469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d30cb228883e6dd4199a3d16509f78a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e104a14551e6fe429e3d8f6cde37e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreDisplay: {fileID: 6445962261849188524}
