@@ -1,9 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
-using UnityEngine;
-using System.Collections;
-
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
@@ -33,14 +29,15 @@ public class BallSpawner : MonoBehaviour
         GameObject spawnedBall = Instantiate(ball, spawnPoint.position, spawnPoint.rotation);
 
         Rigidbody rb = spawnedBall.GetComponent<Rigidbody>();
-        if (rb != null)
+        LifeTimeScript lifeScript = spawnedBall.GetComponent<LifeTimeScript>();
+
+
+        if (rb != null && lifeScript != null)
         {
-            // Random horizontal angle within the max offset
+            lifeScript.haslifetime = true;
             float angleH = Random.Range(-maxHorizontalAngleOffset, maxHorizontalAngleOffset);
             float angleV = Random.Range(-maxVerticalAngleOffset, maxVerticalAngleOffset);
-            // Rotate spawnPoint's forward vector around the Y-axis (horizontal plane)
             Vector3 direction = Quaternion.Euler(0f, angleH, angleV) * spawnPoint.forward;
-
             rb.linearVelocity = direction.normalized * launchForce;
         }
     }
