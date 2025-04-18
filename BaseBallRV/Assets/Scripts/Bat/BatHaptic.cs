@@ -46,7 +46,7 @@ public class BatHaptic : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
-            float impact = math.max(collision.impulse.magnitude * intensityFactor / collisionImpulseAtMaxIntensity, 1.0f);
+            float impact = math.min(collision.impulse.magnitude * intensityFactor / collisionImpulseAtMaxIntensity, 1.0f);
             this.controller.SendHapticImpulse(impact, duration);
         }
     }
