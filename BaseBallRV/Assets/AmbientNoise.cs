@@ -7,12 +7,5 @@ public class AmbientNoise : MonoBehaviour
     {
         AudioManager.Instance.PlayAmbient("Wind");
         AudioManager.Instance.PlayAmbient("Crowd");
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -5,10 +5,14 @@ public class Target : MonoBehaviour
     [SerializeField] private int score = 1;
     [SerializeField] private ScoreManager scoreManager;
 
-
     private void OnTriggerEnter(Collider other)
     {
-        scoreManager.addScore(score);
-    }
+        LifeTimeScript lifeScript = other.GetComponent<LifeTimeScript>();
 
+        if (lifeScript != null)
+        {
+            scoreManager.addScore(score);
+            Destroy(other.gameObject);
+        }
+    }
 }
