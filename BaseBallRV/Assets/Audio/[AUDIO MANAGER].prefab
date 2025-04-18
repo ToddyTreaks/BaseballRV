@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3158495937344354690}
   - component: {fileID: 4156799045367451230}
+  - component: {fileID: 3217408790226279084}
   m_Layer: 0
   m_Name: AmbientSource
   m_TagString: Untagged
@@ -258,6 +259,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3217408790226279084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430641849305901041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62826a2be7689eb48a895de864482ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9134417222686347057
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccc31509416b564194796a211c41d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambientSounds: []
+  ambientSounds:
+  - name: Wind
+    clip: {fileID: 8300000, guid: 0414888382fe06d45861e84f8923919a, type: 3}
   sfxSounds:
   - name: BatHit
     clip: {fileID: 8300000, guid: 9c26467641443994cba32456a52468cd, type: 3}
