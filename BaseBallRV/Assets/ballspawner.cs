@@ -8,11 +8,11 @@ public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private bool enableSpawn = true;
-    [SerializeField] private float spawnTime = 2.0f;
-    [SerializeField] private float launchForce = 10f;
-    [SerializeField] private float maxHorizontalAngleOffset = 5f;
-    [SerializeField] private float maxVerticalAngleOffset = 5f;
+    public bool enableSpawn = true;
+    public float spawnTime = 2.0f;
+    public float launchForce = 10f;
+    public float maxHorizontalAngleOffset = 5f;
+    public float maxVerticalAngleOffset = 5f;
 
     void Start()
     {
