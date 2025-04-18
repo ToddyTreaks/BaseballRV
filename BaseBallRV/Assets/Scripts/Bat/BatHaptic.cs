@@ -43,7 +43,7 @@ public class BatHaptic : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
-            this.controller.SendHapticImpulse(collision.impulse.magnitude * intensityFactor, this.duration);
+            this.controller.SendHapticImpulse(collision.relativeVelocity.magnitude * intensityFactor, this.duration);
         }
     }
 }
