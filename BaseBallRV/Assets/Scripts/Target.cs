@@ -9,7 +9,7 @@ public class Target : MonoBehaviour
     {
         LifeTimeScript lifeScript = other.GetComponent<LifeTimeScript>();
 
-        if (lifeScript != null)
+        if (lifeScript != null && lifeScript.haslifetime)
         {
             scoreManager.addScore(score);
             Destroy(other.gameObject);
