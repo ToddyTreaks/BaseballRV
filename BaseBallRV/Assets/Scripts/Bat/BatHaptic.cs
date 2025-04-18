@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -7,8 +8,9 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 [RequireComponent(typeof(XRBaseInteractable))]
 public class BatHaptic : MonoBehaviour
 {
-    public float intensityFactor = 1.0f;
-    public float duration = 0.1f;  // seconds
+    [SerializeField] private float intensityFactor = 1.0f;
+    [SerializeField] private float collisionImpulseAtMaxIntensity = 3.0f;
+    [SerializeField] private float duration = 0.1f;  // seconds
 
     private XRBaseInteractable interactable;
     private XRBaseInputInteractor controller;
@@ -44,8 +46,8 @@ public class BatHaptic : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
-            this.controller.SendHapticImpulse(collision.impulse.magnitude * intensityFactor, duration);
-            Debug.Log(collision.impulse.magnitude);
+            float impact = math.max(collision.impulse.magnitude * intensityFactor / collisionImpulseAtMaxIntensity, 1.0f);
+            this.controller.SendHapticImpulse(impact, duration);
         }
     }
 }
