@@ -48,6 +48,7 @@ public class BatHaptic : MonoBehaviour
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
             float impact = math.min(collision.impulse.magnitude * intensityFactor / collisionImpulseAtMaxIntensity, 1.0f);
             this.controller.SendHapticImpulse(impact, duration);
+            AudioManager.Instance.PlaySFX("BatHit");
         }
     }
 }
