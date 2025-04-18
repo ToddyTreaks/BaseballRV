@@ -1,14 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
-public class ballspawner : MonoBehaviour
+using UnityEngine;
+using System.Collections;
+
+public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private bool enableSpawn = true;
     [SerializeField] private float spawnTime = 2.0f;
+    [SerializeField] private float launchForce = 10f;
+    [SerializeField] private float maxHorizontalAngleOffset = 5f;
+    [SerializeField] private float maxVerticalAngleOffset = 5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(spawning());
@@ -19,7 +24,25 @@ public class ballspawner : MonoBehaviour
         while (enableSpawn)
         {
             yield return new WaitForSeconds(spawnTime);
-            Instantiate(ball, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+            SpawnBall();
+        }
+    }
+
+    private void SpawnBall()
+    {
+        GameObject spawnedBall = Instantiate(ball, spawnPoint.position, spawnPoint.rotation);
+
+        Rigidbody rb = spawnedBall.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            // Random horizontal angle within the max offset
+            float angleH = Random.Range(-maxHorizontalAngleOffset, maxHorizontalAngleOffset);
+            float angleV = Random.Range(-maxVerticalAngleOffset, maxVerticalAngleOffset);
+            // Rotate spawnPoint's forward vector around the Y-axis (horizontal plane)
+            Vector3 direction = Quaternion.Euler(0f, angleH, angleV) * spawnPoint.forward;
+
+            rb.linearVelocity = direction.normalized * launchForce;
         }
     }
 }
+
