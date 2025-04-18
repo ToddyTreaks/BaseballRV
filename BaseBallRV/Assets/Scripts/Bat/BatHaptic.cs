@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -43,7 +44,8 @@ public class BatHaptic : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
-            this.controller.SendHapticImpulse(collision.relativeVelocity.magnitude * intensityFactor, this.duration);
+            this.controller.SendHapticImpulse(collision.impulse.magnitude * intensityFactor, duration);
+            Debug.Log(collision.impulse.magnitude);
         }
     }
 }
