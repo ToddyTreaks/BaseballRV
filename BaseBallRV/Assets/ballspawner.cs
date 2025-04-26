@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+
+using UnityEngine.UI;
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject ball;
@@ -9,6 +11,18 @@ public class BallSpawner : MonoBehaviour
     public float launchForce = 10f;
     public float maxHorizontalAngleOffset = 5f;
     public float maxVerticalAngleOffset = 5f;
+
+    public Slider SpeedSlider;
+    public Slider SpawnRateSlider;
+    public Slider OffSetSlider;
+
+    private void Update()
+    {
+        launchForce = SpeedSlider.value;
+        spawnTime = SpawnRateSlider.value;
+        maxHorizontalAngleOffset = OffSetSlider.value;
+        maxVerticalAngleOffset = OffSetSlider.value;
+    }
 
     void Start()
     {
