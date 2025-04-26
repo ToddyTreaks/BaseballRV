@@ -325,5 +325,7 @@ MonoBehaviour:
   sfxSounds:
   - name: BatHit
     clip: {fileID: 8300000, guid: 9c26467641443994cba32456a52468cd, type: 3}
+  - name: Ding
+    clip: {fileID: 8300000, guid: 0a73821ff29ac9b45926674c976e5d69, type: 3}
   ambientSource: {fileID: 4156799045367451230}
   sfxSource: {fileID: 1885487982658623831}
