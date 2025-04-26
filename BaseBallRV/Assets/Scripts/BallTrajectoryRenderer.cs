@@ -4,6 +4,8 @@ using UnityEngine;
 public class BallTrajectoryRenderer : MonoBehaviour
 {
     private LineRenderer _trajectoryRenderer;
+    private int _innerCount = 5;
+    [SerializeField] private int updateEveryXUpdate = 20;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -13,7 +15,7 @@ public class BallTrajectoryRenderer : MonoBehaviour
 
     void Start()
     {
-        for (int i = _trajectoryRenderer.positionCount; i >= 0; i--)
+        for (int i = _trajectoryRenderer.positionCount-1; i >= 0; i--)
         {
             _trajectoryRenderer.SetPosition(i,this.gameObject.transform.position);
         }
@@ -22,10 +24,15 @@ public class BallTrajectoryRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = _trajectoryRenderer.positionCount-1; i >= 0 ; i--)
+        if (++_innerCount > updateEveryXUpdate)
         {
-            _trajectoryRenderer.SetPosition(i+1, _trajectoryRenderer.GetPosition(i));
+            for (int i = _trajectoryRenderer.positionCount - 2; i >= 0; i--)
+            {
+                _trajectoryRenderer.SetPosition(i + 1, _trajectoryRenderer.GetPosition(i));
+            }
+            _innerCount = 0;
         }
+        
         _trajectoryRenderer.SetPosition(0, this.gameObject.transform.position);
 
     }

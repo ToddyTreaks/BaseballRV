@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2517139211598479302}
   - component: {fileID: 6997876825222656988}
   - component: {fileID: 3958654150157680873}
+  - component: {fileID: 4647441363349521158}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -318,6 +319,11 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
   - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -389,7 +395,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b0c2962e39a4d49aef81fe05a0e627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trajectoryRenderer: {fileID: 0}
+  updateEveryXUpdate: 15
+--- !u!114 &4647441363349521158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839293841541468408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf703c20074d49419b1b4be3ef9fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
+  haslifetime: 1
 --- !u!1 &7808793214350773572
 GameObject:
   m_ObjectHideFlags: 0
