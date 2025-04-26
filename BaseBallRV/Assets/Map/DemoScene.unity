@@ -2673,6 +2673,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4316283152820389928, guid: 15fe284f0c81b4943a0db120f11eb363, type: 3}
+      propertyPath: _maxScoreGiven
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5014772236260301015, guid: 15fe284f0c81b4943a0db120f11eb363, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
