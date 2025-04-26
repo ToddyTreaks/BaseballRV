@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private TMP_Text _scoreDisplay;
     [SerializeField] private int _maxDisplayedScore = 1000000;
-    [SerializeField] private float vibrationDuration = 0.1f;  // seconds
+    [SerializeField] private float vibrationDuration = 0.2f;  // seconds
     [SerializeField] private int _maxScoreGiven = 5;
     private int score = 0;
 
@@ -55,16 +55,15 @@ public class ScoreManager : MonoBehaviour
     {
         var controllers = FindObjectsByType<XRBaseInputInteractor>(FindObjectsSortMode.None);
 
-        for (int i = 0; i < score; i++)
+        for (int i = 1; i < score+1; i++)
         {
             AudioManager.Instance.PlaySFX("Ding");
-            yield return new WaitForSeconds(vibrationDuration);
             foreach (var controller in controllers)
             {
-                controller.SendHapticImpulse(i/this._maxScoreGiven, vibrationDuration);
+                controller.SendHapticImpulse((float) i/_maxScoreGiven, vibrationDuration);
+                Debug.Log("hiihihihi");
             }
+            yield return new WaitForSeconds(vibrationDuration);
         }
-        
-
     }
 }

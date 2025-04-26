@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 [RequireComponent(typeof(XRBaseInteractable))]
 public class BatHaptic : MonoBehaviour
 {
-    [SerializeField] private float intensityFactor = 1.0f;
+    [SerializeField] private float intensityFactor = 12.0f;
     [SerializeField] private float collisionImpulseAtMaxIntensity = 3.0f;
     [SerializeField] private float duration = 0.1f;  // seconds
 
@@ -47,7 +47,7 @@ public class BatHaptic : MonoBehaviour
     {
         if (this.controller != null && collision.collider.gameObject != this.controller.gameObject) {
             float impact = math.min(collision.impulse.magnitude * intensityFactor / collisionImpulseAtMaxIntensity, 1.0f);
-            this.controller.SendHapticImpulse(impact, duration);
+            this.controller.SendHapticImpulse(0.8f, duration);
             AudioManager.Instance.PlaySFX("BatHit");
         }
     }
