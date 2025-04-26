@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int _maxDisplayedScore = 1000000;
     [SerializeField] private float vibrationDuration = 0.2f;  // seconds
     [SerializeField] private int _maxScoreGiven = 5;
+    [SerializeField] private int pointsForCheers = 3;
     private int score = 0;
 
 
@@ -55,6 +56,7 @@ public class ScoreManager : MonoBehaviour
     {
         var controllers = FindObjectsByType<XRBaseInputInteractor>(FindObjectsSortMode.None);
 
+        if(score >= pointsForCheers) AudioManager.Instance.PlaySFX("Cheers");
         for (int i = 1; i < score+1; i++)
         {
             AudioManager.Instance.PlaySFX("Ding");
