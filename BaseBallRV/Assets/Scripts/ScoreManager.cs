@@ -63,7 +63,6 @@ public class ScoreManager : MonoBehaviour
             foreach (var controller in controllers)
             {
                 controller.SendHapticImpulse((float) i/_maxScoreGiven, vibrationDuration);
-                Debug.Log("hiihihihi");
             }
             yield return new WaitForSeconds(vibrationDuration);
         }

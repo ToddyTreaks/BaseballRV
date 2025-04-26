@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b0c2962e39a4d49aef81fe05a0e627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateEveryXUpdate: 15
+  updateEveryXUpdate: 3
 --- !u!114 &4647441363349521158
 MonoBehaviour:
   m_ObjectHideFlags: 0
